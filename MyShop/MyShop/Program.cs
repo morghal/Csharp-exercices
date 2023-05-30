@@ -13,10 +13,8 @@ using MyShop.ConsoleUI;
 
 #region Main
 
-Console.WriteLine("Initialization...");
-Configuration.LoadConfig();
-Menu.Show();
-
+Configuration.Initialize();
+UI.Show();
 Environment.Exit(0);
 
 #endregion

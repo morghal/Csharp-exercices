@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using MyShop.Models;
 using static System.Runtime.InteropServices.JavaScript.JSType;
-
+using MyShop.DB;
 
 namespace MyShop.Config;
 
@@ -25,6 +25,13 @@ public static class Configuration
     {
         Database db = new Database();
         db.LoadData();
+    }
+
+    public static void Initialize()
+    {
+        Console.WriteLine("Initialization...");
+        LoadConfig();
+        Console.WriteLine("Done !");
     }
 
     public static string LoadFiles()

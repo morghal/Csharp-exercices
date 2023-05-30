@@ -5,15 +5,17 @@ using System.Text;
 using MyShop.Models;
 using System.Threading.Tasks;
 using System.Text.Json;
+using MyShop.Config;
 
-namespace MyShop.Config
+namespace MyShop.DB
 {
     public class Database
     {
-        public Database() { 
+        public Database()
+        {
             Products = LoadData();
         }
-        public List<Product> Products {get; set;}
+        public List<Product> Products { get; set; }
 
         // Method to refresh the data
         public void RefreshData()

@@ -1,4 +1,4 @@
-﻿using MyShop.Config;
+﻿using MyShop.DB;
 using MyShop.Interfaces;
 using MyShop.Models;
 using System;
@@ -20,10 +20,11 @@ namespace MyShop.Controllers
         {
             Product prod = GetDetails(product.Id);
             string result = @"
-id          name                price               Qty left
+    id                  name                        price             Qty left
 
 ";
-            result += $"{prod.Id}    {prod.Name}          {prod.Price} euros           {prod.Stock}\n";
+            result += @"
+    "+prod.Id+"         "+prod.Name+"                    "+prod.Price+" euros              "+prod.Stock;
             return result;
         }
 
@@ -40,6 +41,10 @@ id          name                price               Qty left
         public Product GetDetails(int productId)
         {
             Database db = new Database();
+            if (productId > db.Products.Count())
+            {
+                throw new IndexOutOfRangeException();
+            }  
             Product product = db.Products.First(x => x.Id.Equals(productId));
             return product;
         }
@@ -50,12 +55,13 @@ id          name                price               Qty left
             List<Product> products = db.Products;
             List<string> list = new List<string>();
             list.Add(@"
-id          name                price               Qty left
-
+    id          name
 ");
             foreach (Product product in products)
             {
-               list.Add($"{product.Id}    {product.Name}          {product.Price} euros           {product.Stock}\n");
+               list.Add(@"
+    " + product.Id +"    "+ product.Name+@" 
+    ");
             }
             return list;
             
