@@ -3,7 +3,11 @@
 public abstract class User : BaseEntity 
 {
     public abstract UserType Type { get; }
+    public string Name { get; }
+    public string Pw { get; }
 }
+
+
 
 public sealed class Manager : User
 {

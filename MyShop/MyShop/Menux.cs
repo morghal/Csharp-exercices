@@ -1,6 +1,6 @@
 ﻿namespace MyShop;
 
-public static class Menu
+public static class Menux
 {
     /// <summary>
     ///  Reference the console menu loop here<br />

@@ -5,13 +5,16 @@
  * 
  * You are not obliged to keep the existing code. Feel free to use your own classes instead.
  */
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using MyShop.Config;
+using MyShop.ConsoleUI;
+//using MyShop.Models;
 
 #region Main
 
 Console.WriteLine("Initialization...");
 Configuration.LoadConfig();
-Console.WriteLine("Initialization done ✅");
-
 Menu.Show();
 
 Environment.Exit(0);
