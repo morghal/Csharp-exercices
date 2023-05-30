@@ -26,7 +26,12 @@ namespace MyShop.DB
         public List<Product> LoadData()
         {
             string jsonFile = Configuration.LoadFiles();
-            return JsonSerializer.Deserialize<List<Product>>(jsonFile);
+            List<Product>? products = JsonSerializer.Deserialize<List<Product>>(jsonFile);
+            if(products is null) 
+            { Console.WriteLine("Failure loading data");
+              Environment.Exit(1); 
+            }
+            return products;
         }
     }
 }

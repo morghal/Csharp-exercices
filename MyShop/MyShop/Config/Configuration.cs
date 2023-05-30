@@ -23,8 +23,7 @@ public static class Configuration
     /// <remarks> Hint: static, appsettings, file, inheritance </remarks>
     public static void LoadConfig()
     {
-        Database db = new Database();
-        db.LoadData();
+        new Database().LoadData();
     }
 
     public static void Initialize()

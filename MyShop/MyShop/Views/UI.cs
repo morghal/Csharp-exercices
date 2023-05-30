@@ -48,7 +48,7 @@ namespace MyShop.ConsoleUI
         #region Helpers views and routes
         private static void GoToRoute(string route, Router router)
         {
-            router.go(route);
+            router.Go(route);
         }
 
         public static string ChooseAndCheckIfValid(int lastIndex = 999)
@@ -59,7 +59,7 @@ namespace MyShop.ConsoleUI
             {
                 try
                 {
-                    string choice = Console.ReadLine();
+                    string? choice = Console.ReadLine();
                     if (!int.TryParse(choice, out int control) || int.Parse(choice) > lastIndex)
                     {
                         throw new FormatException();

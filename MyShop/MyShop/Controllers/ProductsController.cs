@@ -40,8 +40,8 @@ namespace MyShop.Controllers
 
         public Product GetDetails(int productId)
         {
-            Database db = new Database();
-            if (productId > db.Products.Count())
+            Database db = new();
+            if (productId > db.Products.Count)
             {
                 throw new IndexOutOfRangeException();
             }  
@@ -49,14 +49,15 @@ namespace MyShop.Controllers
             return product;
         }
 
-        public IEnumerable<string> List(IEnumerable<int> specificIds = null)
+        public IEnumerable<string> List(IEnumerable<int>? specificIds = null)
         {
-            Database db = new Database();
-            List<Product> products = db.Products;
-            List<string> list = new List<string>();
-            list.Add(@"
+            List<Product> products = new Database().Products;
+            List<string> list = new()
+            {
+                @"
     id          name
-");
+"
+            };
             foreach (Product product in products)
             {
                list.Add(@"

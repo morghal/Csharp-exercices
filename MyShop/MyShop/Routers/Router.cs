@@ -13,7 +13,7 @@ namespace MyShop.Routers
 {
     public class Router
     {
-        public virtual void go(string choice)
+        public virtual void Go(string choice)
         {
             switch (choice)
             {
@@ -30,7 +30,7 @@ namespace MyShop.Routers
 
     public class ProductsRouter : Router 
     {
-        public override void go(string choice) 
+        public override void Go(string choice) 
         {
             IProductService controller = new ProductsController();
             switch (choice)
@@ -50,7 +50,7 @@ namespace MyShop.Routers
             }
         }
 
-        private string GetProductIfValidId()
+        public static string GetProductIfValidId()
         {
             string product = "";
             bool formatOk = false;
