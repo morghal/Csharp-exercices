@@ -8,7 +8,7 @@ public interface IDataSource<T> where T : BaseEntity
 {
     /// <summary> Load all <see cref="T"/> objects </summary>
     /// <returns> Whether the method run as expected or not </returns>
-    public IEnumerable<T> LoadData();
+    public IEnumerable<T> Load();
 
     /// <summary> Load <see cref="T"/> objects matching <paramref name="predicate"/> </summary>
     /// <returns> The item matching predicate or empty list if nothing is found </returns>
